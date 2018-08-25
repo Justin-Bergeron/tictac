@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -9,6 +10,9 @@ function Square(props) {
     </button>
   );
 }
+
+
+
 
 class Board extends React.Component {
   renderSquare(i) {
@@ -22,23 +26,35 @@ class Board extends React.Component {
 
   render() {
     return(
-      <div>
-        <div className="board-row">
+      <React.Fragment>                   {/* fragment lets you return all the divs without wrapping them in another one*/}
+        <div className="board-row-0">
           {this.renderSquare(0)}
+        </div>
+        <div className="board-row-1">
           {this.renderSquare(1)}
+        </div>
+        <div className="board-row-2">
           {this.renderSquare(2)}
         </div>
-        <div className="board-row">
+        <div className="board-row-3">
           {this.renderSquare(3)}
+        </div>
+        <div className="board-row-4">
           {this.renderSquare(4)}
+        </div>
+        <div className="board-row-5">
           {this.renderSquare(5)}
         </div>
-        <div className="board-row">
+        <div className="board-row-6">
           {this.renderSquare(6)}
+        </div>
+        <div className="board-row-7">
           {this.renderSquare(7)}
+        </div>
+        <div className="board-row-8">
           {this.renderSquare(8)}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -99,7 +115,7 @@ render() {
   if (winner) {
     status = 'Winner: ' + winner + ' fuck yeah.';
   } else {
-    status = 'Next player:' + (this.state.xIsNext ? 'X' : 'O');
+    status = 'Next player:  ' + (this.state.xIsNext ? 'X' : 'O');
   }
 
   return (
@@ -111,7 +127,7 @@ render() {
         />
       </div>
       <div className = 'game-info'>
-        <div>{status}</div>
+        <div className = 'next-player'>{status}</div>
         <ol>{moves}</ol>
       </div>
     </div>
